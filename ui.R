@@ -18,8 +18,12 @@ shinyUI(fluidPage(
                                     min = -1999, max = 3000, value = c(1500,2000))
                         ),
                 
-                mainPanel(plotOutput("map"),
+                mainPanel(
+                        tabsetPanel(
+                                tabPanel("Map", plotOutput("map")),
+                                tabPanel("Documentation", verbatimTextOutput("documentation")),
                 h6("This data has been provided by Fred Espenak of NASA's GSFC. The full data set 
                    is from 1999 B.C to 3000 A.D..", align ="center"))
-        )
-))
+                        )
+                ))
+                )
